@@ -1,0 +1,15 @@
+{
+    "name": "DRR Template",
+    "version": "1.0.0",
+    "description": "copies most frequently used phrases to clipboard",
+    "manifest_version": 3,
+    "author": "Emerson Espinoza",
+    "action":{
+       
+        "default_icon":{
+            "16": "images/logo.png"
+        },
+        "default_popup": "index.html",
+        "default_title": "DRR Templates"
+    }
+}
