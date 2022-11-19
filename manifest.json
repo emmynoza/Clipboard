@@ -11,5 +11,7 @@
         },
         "default_popup": "index.html",
         "default_title": "DRR Templates"
-    }
+    },
+    "content_security_policy": "script-src 'self' https://ajax.googleapis.com https://stackpath.bootstrapcdn.com; object-src 'self';"
+
 }

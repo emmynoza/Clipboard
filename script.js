@@ -1,34 +1,54 @@
 let beoTemplate = document.getElementById('beoTemplates');
-
-const item = document.querySelectorAll('.list-group-item')
-
-
-const beoItem = Array.from(item)
-
 const input = document.getElementById('input')
-
+const submitBtn = document.getElementById('submit-btn')
 function copyToClipboard(item) {
-
-    console.log('i was clicked');
-    console.log(item.innerText);
     navigator.clipboard.writeText(item.innerText)
 }
+const data = ['Drr 3 6ft']
 
-function addItem() {
-    beoItem.push(input.value)
-    console.log(input.value);
-    console.log(beoItem);
+const beoItem = Array.from(data)
+
+// function addItem() {
+
+
+//     const item = document.createElement('a')
+
+//     item.classList.add('list-group-item', 'list-group-item-action')
+//     item.href = "#"
+//     item.setAttribute("aria", true)
+//     item.innerHTML = `${input.value}<button>X</button>`
+
+//     beoItem.push(item)
+
+//     render(beoItem)
+
+// }
+
+start(beoItem)
+
+function start(items) {
+    items.forEach(item => {
+        console.log(item);
+
+        const template = `<a class= "list-group-item list-group-item-action">${item}</a><button>x</button>`
+
+        const listItem = document.createElement('div')
+
+        listItem.innerHTML = template;
+
+        beoTemplate.appendChild(listItem)
+
+        listItem.addEventListener('click', e => {
+            e.preventDefault()
+            listItem.toggleAttribute('active')
+            copyToClipboard(listItem)
+
+        })
+    })
 }
 
-
-beoItem.forEach(item => {
-    console.log(item.outerHTML);
-    item.addEventListener('click', e => {
-        e.preventDefault()
-        item.toggleAttribute('active')
-        copyToClipboard(item)
-    })
-
-
+submitBtn.addEventListener('click', e => {
+    e.preventDefault()
+    // addItem()
 })
 
